@@ -12,6 +12,7 @@ def get_product_by_id(productId: int) -> dict:
             
     return my_product
 
+
 def get_products_by_type(productType: str) -> list:
     if not type(productType) == str:
         raise TypeError('product type must be a str')
@@ -53,3 +54,15 @@ def menu_report():
     type_list_sorted = sorted(type_dict.items(), key=lambda x:x[1])
     
     return f'Products Count: {len(products)} - Average Price: ${average_price} - Most Common Type: {type_list_sorted[-1][0]}'
+
+
+def add_product_extra(menu: list, *keys: tuple, **item: dict):
+    for key in keys:
+        if not key in item.keys():
+            raise KeyError(f'field {key} is required')
+
+    if len(item.keys()) > len(keys):
+        new_item = {key: value for key, value in item.items() if key in keys}        
+        new_item['_id'] = len(menu) + 1
+        menu.append(new_item)
+        return new_item
