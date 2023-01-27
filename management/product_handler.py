@@ -18,7 +18,6 @@ def get_products_by_type(productType: str) -> list:
         raise TypeError('product type must be a str')
     
     products_list = list()
-
     for product in products:
         if product['type'] == productType:
             products_list.append(product)
@@ -51,6 +50,7 @@ def menu_report():
         'drink': types.count('drink'), 
         'bakery': types.count('bakery')
     }
+    
     type_list_sorted = sorted(type_dict.items(), key=lambda x:x[1])
     
     return f'Products Count: {len(products)} - Average Price: ${average_price} - Most Common Type: {type_list_sorted[-1][0]}'

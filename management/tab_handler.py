@@ -1,8 +1,8 @@
 from menu import products
 
+
 def calculate_tab(orders: list):
     values = list()
-
     for product in products:
         for order in orders:
             if product['_id'] == order['_id']:

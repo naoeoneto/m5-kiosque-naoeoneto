@@ -2,6 +2,7 @@ from management.product_handler import get_product_by_id, get_products_by_type, 
 from menu import products
 from management.tab_handler import calculate_tab
 
+
 if __name__ == '__main__':
     print(get_product_by_id(32))
 
@@ -14,6 +15,7 @@ if __name__ == '__main__':
             'description': 'Cupcake made with vegan products',
             'type': 'bakery',
         }
+
     print(add_product(products, **new_product))
 
     table_1 = [{"_id": 1, "amount": 5}, {"_id": 19, "amount": 5}]
@@ -39,6 +41,7 @@ if __name__ == '__main__':
         "extra_key_1": "extra_value_1",
         "extra_key_2": "extra_value_2"
     }
+
     print(add_product_extra(products, *required_keys, **new_product))
 
     required_keys = ("description", "price", "rating", "title", "type")
@@ -48,4 +51,5 @@ if __name__ == '__main__':
         "description": "Sanduiche de Python",
         "type": "fast-food"
     }
+    
     print(add_product_extra(products, *required_keys, **new_product))
