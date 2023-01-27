@@ -1,5 +1,5 @@
 from menu import products
-# import menu
+
 
 def get_product_by_id(productId: int):
     my_product = dict()
@@ -12,7 +12,7 @@ def get_product_by_id(productId: int):
             
 
 
-def get_products_by_type(productType):
+def get_products_by_type(productType: str):
     products_list = list()
 
     for product in products:
@@ -20,3 +20,10 @@ def get_products_by_type(productType):
             products_list.append(product)
     
     return products_list
+
+
+def add_product(menu: list, **item: dict):
+    item['_id'] = len(menu) + 1
+    menu.append(item)
+
+    return item
